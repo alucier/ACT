@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dropdown Menu</title>
+<style>
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: transparent;
+    color: black; /* Change text color to black */
+    padding: 20px;
+  }
+
+  /* Target only select elements inside the dropdown class */
+  .dropdown select {
+    color: white; /* Leave button text color unchanged */
+    text-align-last: center; /* Center the display text within the dropdown */
+  }
+
+  select {
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 2px solid #1EA5BD;
+    background-color: #1EA5BD;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 8px; /* Rounded corners */
+    appearance: none; /* Remove default dropdown arrow */
+    -webkit-appearance: none; /* Remove default dropdown arrow for WebKit browsers */
+    -moz-appearance: none; /* Remove default dropdown arrow for Mozilla browsers */
+    cursor: pointer;
+    transition: all 0.3s ease; /* Smooth transition */
+  }
+
+  select:focus {
+    border-color: #11657C;
+    outline: none; /* Remove default focus outline */
+  }
+
+  /* Hover effects */
+  .dropdown:hover select {
+    background-color: #11657C;
+    border-color: #11657C;
+  }
+
+  /* Clearfix */
+  .clear {
+    clear: both;
+  }
+  #foundationalDropdown,
+  #practitionerDropdown,
+  #advancedDropdown,
+  #expertDropdown {
+    display: none;
+  }
+
+  /* Modern styling for the table */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+  th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+
+  th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  tbody tr:hover {
+    background-color: #f2f2f2;
+  }
+
+/* Bullet-pointed list styling */
+ul {
+  margin-top: 20px; /* Add margin to create space */
+  padding-left: 20px;
+  list-style-type: none; /* Remove default bullet points */
+}
+
+ul li {
+  margin-bottom: 8px;
+  padding-left: 20px;
+  position: relative;
+}
+
+ul li:before {
+  content: "•"; /* Bullet point symbol */
+  color: #1EA5BD; /* Bullet point color */
+  font-size: 12px; /* Bullet point size */
+  position: absolute;
+  left: 0;
+}
+
+
+</style>
+
+</head>
+<body>
+
+
+<!-- Career Level Dropdown -->
+
+<div class="dropdown">
+  <label for="careerLevel">Select a Career Level:</label>
+  <select name="careerLevel" id="careerLevel">
+	<option value="">Select a Career Level</option>
+	<option value="foundational">Foundational</option>
+	<option value="practitioner">Practitioner</option>
+	<option value="advanced">Advanced</option>
+	<option value="expert">Expert</option>
+  </select>
+</div>
+
+<!-- Foundational Certificates Dropdown -->
+<div class="dropdown" id="foundationalDropdown">
+  <label for="foundationalCertification">Select a Foundational Certification:</label>
+  <select name="foundationalCertification" class="certificate-dropdown" id="foundationalCertification">
+	<option value="">Select a Certification</option>
+	<option value="entry-certificate">Entry Certificate in Business Analysis</option>
+	<option value="foundation-certificate">Foundation Certificate in Business Analysis</option>
+	<option value="practitioner-certificate">Practitioner Certificate in Business Analysis Practice</option>
+	<option value="certified-professional">Certified Professional for Requirements Engineering - Foundation Level</option>
+	<option value="certified-foundation">Certified Foundation Level Business Analysis</option>
+	<option value="business-analysis-overview">Business Analysis Overview</option>
+	<option value="essentials-of-ba">Essentials of Business Analysis</option>
+  </select>
+</div>
+
+<!-- Practitioner Certificates Dropdown -->
+<div class="dropdown" id="practitionerDropdown">
+  <label for="practitionerCertification">Select a Practitioner Certification:</label>
+  <select name="practitionerCertification" class="certificate-dropdown" id="practitionerCertification">
+	<option value="">Select a Certification</option>
+	<option value="capability-certification">Certification of Capability in Business Analysis</option>
+	<option value="practitioner-requirements-engineering">Practitioner Certificate in Requirements Engineering</option>
+	<option value="certified-professional-advanced">Certified Professional for Requirements Engineering - Advanced Level - Practitioner</option>
+	<option value="certified-advanced">Certified Advanced Level Business Analysis</option>
+	<option value="certified-agile">Certified Agile Business Analysis</option>
+	<option value="practitioner-business-analysis">Practitioner Certificate in Business Analysis</option>
+	<option value="professional-agile-business-analysis">Professional Certificate in Agile Business Analysis</option>
+  </select>
+</div>
+
+<!-- Advanced Certificates Dropdown -->
+<div class="dropdown" id="advancedDropdown">
+  <label for="advancedCertification">Select an Advanced Certification:</label>
+  <select name="advancedCertification" class="certificate-dropdown" id="advancedCertification">
+	<option value="">Select a Certification</option>
+	<option value="certified-business-analysis-professional">Certified Business Analysis Professional</option>
+	<option value="agile-analysis-certification">Agile Analysis Certification</option>
+	<option value="professional-business-analysis">Professional in Business Analysis</option>
+	<option value="international-diploma">International Diploma in Business Analysis</option>
+	<option value="certified-professional-advanced-specialist">Certified Professional for Requirements Engineering - Advanced Level - Specialist</option>
+  </select>
+</div>
+
+<!-- Expert Certificates Dropdown -->
+<div class="dropdown" id="expertDropdown">
+  <label for="expertCertification">Select an Expert Certification:</label>
+  <select name="expertCertification" class="certificate-dropdown" id="expertCertification">
+	<option value="">Select a Certification</option>
+	<option value="advanced-international-diploma">Advanced International Diploma in Business Analysis</option>
+	<option value="certified-professional-expert">Certified Professional for Requirements Engineering - Expert Level</option>
+  </select>
+</div>
+
+<div class="clear"></div>
+<!-- Table to display certificate information -->
+<table id="certificateTable">
+  <thead>
+    <tr>
+      <th>Organization</th>
+      <th>Certificate (acronym)</th>
+      <th>Title</th>
+      <th>Exam Cost</th>
+      <th>Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- Rows will be dynamically populated here -->
+  </tbody>
+</table>
+
+<!-- Bullet-pointed list for certificate information -->
+<ul id="certificateInfo"></ul>
+
+<script>
+// Function to hide all certificate dropdowns
+function hideAllCertificateDropdowns() {
+  // Target the dropdown containers instead of the select elements
+  document.getElementById("foundationalDropdown").style.display = "none";
+  document.getElementById("practitionerDropdown").style.display = "none";
+  document.getElementById("advancedDropdown").style.display = "none";
+  document.getElementById("expertDropdown").style.display = "none";
+}
+
+
+  // Add change event listener to Career Level dropdown
+  document.getElementById("careerLevel").addEventListener("change", function() {
+    var selectedCareerLevel = this.value;
+    
+    // Hide all certificate dropdowns
+    hideAllCertificateDropdowns();
+
+    // Show the corresponding certificate dropdown based on the selected career level
+    if (selectedCareerLevel !== "") {
+      var correspondingDropdownId = selectedCareerLevel + "Dropdown";
+      document.getElementById(correspondingDropdownId).style.display = "block";
+    }
+  });
+</script>
+<script>
+  // Certificate data for each career level
+  var certificateData = {
+    foundational: [
+      ["Organization A", "F-Cert", "Foundational Certificate", "$100", "https://example.com/f-cert"],
+      ["Organization B", "F-BAC", "Foundational BA Certificate", "$150", "https://example.com/f-bac"]
+    ],
+    practitioner: [
+      ["Organization C", "P-Cert", "Practitioner Certificate", "$200", "https://example.com/p-cert"],
+      ["Organization D", "P-BAC", "Practitioner BA Certificate", "$250", "https://example.com/p-bac"]
+    ],
+    advanced: [
+      ["Organization E", "A-Cert", "Advanced Certificate", "$300", "https://example.com/a-cert"],
+      ["Organization F", "A-BAC", "Advanced BA Certificate", "$350", "https://example.com/a-bac"]
+    ],
+    expert: [
+      ["Organization G", "E-Cert", "Expert Certificate", "$400", "https://example.com/e-cert"],
+      ["Organization H", "E-BAC", "Expert BA Certificate", "$450", "https://example.com/e-bac"]
+    ]
+  };
+
+  // Function to update the table with certificate information based on selected career level
+  function updateCertificateTable(careerLevel) {
+    var tableBody = document.querySelector("#certificateTable tbody");
+    tableBody.innerHTML = ""; // Clear existing rows
+
+    // Populate rows with certificate data based on selected career level
+    certificateData[careerLevel].forEach(function(rowData) {
+      var row = document.createElement("tr");
+      rowData.forEach(function(cellData) {
+        var cell = document.createElement("td");
+        cell.textContent = cellData;
+        row.appendChild(cell);
+      });
+      tableBody.appendChild(row);
+    });
+  }
+
+  // Add change event listener to Career Level dropdown
+  document.getElementById("careerLevel").addEventListener("change", function() {
+    var selectedCareerLevel = this.value;
+
+    // Update the table with certificate information based on the selected career level
+    if (selectedCareerLevel !== "") {
+      updateCertificateTable(selectedCareerLevel);
+    } else {
+      // If no career level selected, clear the table
+      document.querySelector("#certificateTable tbody").innerHTML = "";
+    }
+  });
+</script>
+<script>
+  // Certificate data for each certificate
+  var certificateInfo = {
+    "entry-certificate": [
+      "Organization A: Entry Certificate in Business Analysis",
+      "This certificate provides foundational knowledge in business analysis.",
+      "Exam Cost: $100",
+      "Link: https://example.com/entry-certificate"
+    ],
+    "foundation-certificate": [
+      "Organization B: Foundation Certificate in Business Analysis",
+      "This certificate builds upon entry-level knowledge and covers more advanced topics.",
+      "Exam Cost: $150",
+      "Link: https://example.com/foundation-certificate"
+    ],
+    // Add information for other certificates similarly
+  };
+
+  // Function to update the bullet-pointed list with certificate information
+  function updateCertificateInfo(selectedCertificate) {
+    var certificateList = document.getElementById("certificateInfo");
+    certificateList.innerHTML = ""; // Clear existing list
+
+    if (selectedCertificate !== "") {
+      certificateInfo[selectedCertificate].forEach(function(info) {
+        var listItem = document.createElement("li");
+        listItem.textContent = info;
+        certificateList.appendChild(listItem);
+      });
+    }
+  }
+
+  // Add change event listener to Certificate dropdown
+  document.querySelectorAll(".certificate-dropdown").forEach(function(dropdown) {
+    dropdown.addEventListener("change", function() {
+      var selectedCertificate = this.value;
+      updateCertificateInfo(selectedCertificate);
+    });
+  });
+</script>
+</body>
+</html>
